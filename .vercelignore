@@ -3,7 +3,9 @@
 # site sections inside source/ (e.g. source/docs/) are NOT excluded.
 # api/server.js is a standalone long-lived Node server, NOT a Vercel
 # serverless function — it must not be uploaded or built by Vercel.
-/api/
+# api/forms.js IS a serverless function and must be deployed.
+/api/server.js
+/api/data/
 /scripts/
 /reports/
 /design-system/
