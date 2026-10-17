@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowmint — AI workflows with nothing to hide</title>
+  <meta name="description" content="Flowmint is the visual automation platform for building AI agents and workflows you can inspect, control, and trust — from first node to production scale.">
+  <meta property="og:title" content="Flowmint — AI workflows with nothing to hide">
+  <meta property="og:description" content="Flowmint is the visual automation platform for building AI agents and workflows you can inspect, control, and trust — from first node to production scale.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flowmint.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fd8925'/%3E%3Cstop offset='1' stop-color='%23ff0c00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230e0918'/%3E%3Cg fill='url(%23g)'%3E%3Ccircle cx='10' cy='10' r='3.4'/%3E%3Ccircle cx='10' cy='22' r='3.4'/%3E%3Ccircle cx='22' cy='22' r='3.4'/%3E%3C/g%3E%3Cpath d='M12 10c4 0 4 6 8 6s3 4 0 4' stroke='url(%23g)' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/effects.css">
+</head>
+<body>
+  <a class="ds-skip" href="#main">Skip to content</a>
+
+  <!-- ======================= Site header ======================= -->
+  <header class="ds-header" data-site-header>
+    <div class="ds-header__bar">
+      <a class="ds-brand" href="/" aria-label="Flowmint home">
+        <img src="/assets/logo.svg" alt="Flowmint" width="132" height="28">
+      </a>
+      <nav class="ds-nav" aria-label="Global navigation">
+        <ul class="ds-nav__list">
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/features/">Product</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Product menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Product submenu">
+              <a href="/features/">Product overview</a>
+              <a href="/integrations/">Integrations</a>
+              <a href="/workflows/">Templates</a>
+              <a href="/features/#ai">AI automation</a>
+              <a href="/features/#mcp">Model context protocol</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/features/#use-cases">Use cases</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Use cases menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Use cases submenu">
+              <a href="/features/#ai-agents">Building AI agents</a>
+              <a href="/features/#it-operations">IT operations</a>
+              <a href="/features/#lead-automation">Lead automation</a>
+              <a href="/features/#secops">Security operations</a>
+              <a href="/features/#embed">Embedding Flowmint</a>
+              <a href="/features/#crm">Supercharge your CRM</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/docs/">Docs</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Docs menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Docs submenu">
+              <a href="/docs/">Documentation</a>
+              <a href="/docs/#self-hosting">Self-hosting guide</a>
+              <a href="/docs/#changelog">Changelog</a>
+              <a href="/legal/#license">License</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/community/">Community</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Community menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Community submenu">
+              <a href="/community/">Forum</a>
+              <a href="/community/#creators">Creators</a>
+              <a href="/community/#events">Events</a>
+              <a href="/contact/">Support</a>
+              <a href="/docs/">Learn</a>
+            </div>
+          </li>
+          <li class="ds-nav__item">
+            <a class="ds-nav__link" href="/features/#enterprise">Enterprise</a>
+          </li>
+          <li class="ds-nav__item">
+            <a class="ds-nav__link" href="/pricing/">Pricing</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="ds-header__actions">
+        <button class="ds-signin" data-auth-open="signin" type="button">Sign in</button>
+        <button class="ds-btn ds-btn--pill" data-auth-open="signup">Get Started</button>
+        <button class="ds-burger" data-drawer-open aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="ds-drawer" data-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+      <img src="/assets/logo.svg" alt="Flowmint" width="120" height="26">
+      <button class="ds-drawer__close" data-drawer-close aria-label="Close menu">&times;</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <div style="display:grid;gap:.25rem">
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-prod" style="width:100%;justify-content:space-between">Product <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-prod" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/features/">Product overview</a>
+          <a class="ds-nav__link" href="/integrations/">Integrations</a>
+          <a class="ds-nav__link" href="/workflows/">Templates</a>
+          <a class="ds-nav__link" href="/features/#ai">AI automation</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-use" style="width:100%;justify-content:space-between">Use cases <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-use" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/features/#ai-agents">Building AI agents</a>
+          <a class="ds-nav__link" href="/features/#it-operations">IT operations</a>
+          <a class="ds-nav__link" href="/features/#secops">Security operations</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-docs" style="width:100%;justify-content:space-between">Docs <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-docs" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/docs/">Documentation</a>
+          <a class="ds-nav__link" href="/docs/#self-hosting">Self-hosting guide</a>
+          <a class="ds-nav__link" href="/docs/#changelog">Changelog</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-com" style="width:100%;justify-content:space-between">Community <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-com" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/community/">Forum</a>
+          <a class="ds-nav__link" href="/community/#creators">Creators</a>
+          <a class="ds-nav__link" href="/community/#events">Events</a>
+        </div>
+        <a class="ds-nav__link" href="/features/#enterprise">Enterprise</a>
+        <a class="ds-nav__link" href="/pricing/">Pricing</a>
+      </div>
+    </nav>
+    <div style="display:grid;gap:.75rem;margin-top:2rem">
+      <button class="ds-btn ds-btn--pill ds-btn--full-mobile" data-auth-open="signup">Get Started</button>
+      <button class="ds-btn ds-btn--ghost ds-btn--full-mobile" data-auth-open="signin" type="button">Sign in</button>
+    </div>
+  </div>
+
+  <main id="main">
+<!-- ======================= Hero ======================= -->
+    <section class="ds-hero ds-glow-field ds-glow-field--hero" aria-labelledby="hero-title">
+      <div class="ds-container">
+        <div class="ds-hero__grid">
+          <div>
+            <p class="ds-eyebrow ds-reveal">Introducing Flowmint 2.0 — visual AI orchestration</p>
+            <h1 class="ds-hero-title ds-reveal ds-reveal--d1" id="hero-title" style="font-size:clamp(2.4rem,5.4vw,4.2rem)">AI workflows with<br><span class="ds-accent">nothing to hide.</span></h1>
+            <p class="ds-lead ds-reveal ds-reveal--d2" style="margin-top:1.5rem">Design automations visually, drop into code whenever you want, and trace every AI decision step by step. Flowmint keeps you in control from your first node to production scale.</p>
+            <div class="ds-hero__ctas ds-reveal ds-reveal--d3">
+              <button class="ds-btn ds-btn--cta ds-btn--pill" data-auth-open="signup" style="padding:1rem 2rem;font-size:1rem">Start building free
+                <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg>
+              </button>
+              <a class="ds-btn ds-btn--ghost ds-btn--pill" href="/contact/" style="padding:1rem 2rem;font-size:1rem">Talk to sales</a>
+            </div>
+            <p class="ds-muted ds-reveal ds-reveal--d3" style="font-size:.85rem;margin-top:1.25rem">Free to start · No credit card required · Self-host anytime</p>
+          </div>
+          <div class="ds-hero__art ds-reveal ds-reveal--d2" aria-hidden="true">
+            <svg viewBox="0 0 520 420" style="width:100%;height:auto" role="presentation">
+              <defs>
+                <linearGradient id="hero-g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fd8925"/><stop offset="1" stop-color="#ff0c00"/>
+                </linearGradient>
+                <radialGradient id="hero-glow" cx="0.5" cy="0.4" r="0.7">
+                  <stop offset="0" stop-color="#ea4b71" stop-opacity="0.35"/><stop offset="1" stop-color="#ea4b71" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect x="20" y="10" width="480" height="400" rx="24" fill="url(#hero-glow)"/>
+              <rect x="20" y="10" width="480" height="400" rx="24" fill="#14101f" fill-opacity="0.55" stroke="rgba(255,255,255,0.14)"/>
+              <!-- canvas dots -->
+              <g fill="rgba(255,255,255,0.10)">
+                <circle cx="70" cy="60" r="2"/><circle cx="120" cy="60" r="2"/><circle cx="170" cy="60" r="2"/><circle cx="220" cy="60" r="2"/><circle cx="270" cy="60" r="2"/><circle cx="320" cy="60" r="2"/><circle cx="370" cy="60" r="2"/><circle cx="420" cy="60" r="2"/><circle cx="470" cy="60" r="2"/>
+                <circle cx="70" cy="110" r="2"/><circle cx="470" cy="110" r="2"/><circle cx="70" cy="160" r="2"/><circle cx="470" cy="160" r="2"/>
+                <circle cx="70" cy="210" r="2"/><circle cx="470" cy="210" r="2"/><circle cx="70" cy="260" r="2"/><circle cx="470" cy="260" r="2"/>
+                <circle cx="70" cy="310" r="2"/><circle cx="470" cy="310" r="2"/><circle cx="70" cy="360" r="2"/><circle cx="120" cy="360" r="2"/><circle cx="170" cy="360" r="2"/><circle cx="220" cy="360" r="2"/><circle cx="270" cy="360" r="2"/><circle cx="320" cy="360" r="2"/><circle cx="370" cy="360" r="2"/><circle cx="420" cy="360" r="2"/><circle cx="470" cy="360" r="2"/>
+              </g>
+              <!-- connectors -->
+              <g fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="7 6">
+                <path d="M150 150 C 185 150, 185 205, 220 205"/>
+                <path d="M350 205 C 385 205, 385 150, 420 150"/>
+                <path d="M350 205 C 385 205, 385 265, 420 265"/>
+              </g>
+              <!-- nodes -->
+              <g font-family="Manrope,sans-serif">
+                <rect x="50" y="118" width="100" height="64" rx="12" fill="#1b1728" stroke="rgba(255,255,255,0.16)"/>
+                <rect x="50" y="118" width="5" height="64" rx="2.5" fill="url(#hero-g)"/>
+                <text x="66" y="144" fill="#fff" font-size="12" font-weight="600">Webhook</text>
+                <text x="66" y="162" fill="#9d9797" font-size="10.5">Trigger</text>
+                <rect x="220" y="173" width="130" height="64" rx="12" fill="#1b1728" stroke="url(#hero-g)" stroke-width="1.5"/>
+                <circle cx="242" cy="205" r="11" fill="url(#hero-g)"/>
+                <text x="260" y="200" fill="#fff" font-size="12" font-weight="600">AI agent</text>
+                <text x="260" y="218" fill="#9d9797" font-size="10.5">Plans + tools</text>
+                <rect x="420" y="118" width="100" height="64" rx="12" fill="#1b1728" stroke="rgba(255,255,255,0.16)"/>
+                <text x="436" y="144" fill="#fff" font-size="12" font-weight="600">Chat app</text>
+                <text x="436" y="162" fill="#9d9797" font-size="10.5">Respond</text>
+                <rect x="420" y="233" width="100" height="64" rx="12" fill="#1b1728" stroke="rgba(255,255,255,0.16)"/>
+                <text x="436" y="259" fill="#fff" font-size="12" font-weight="600">CRM</text>
+                <text x="436" y="277" fill="#9d9797" font-size="10.5">Update deal</text>
+              </g>
+              <!-- execution log chip -->
+              <g font-family="Manrope,sans-serif">
+                <rect x="60" y="300" width="400" height="72" rx="14" fill="#0d0a19" stroke="rgba(52,199,123,0.35)"/>
+                <circle cx="86" cy="336" r="7" fill="#34c77b"/>
+                <text x="102" y="332" fill="#fff" font-size="12" font-weight="600">Run #48,211 completed in 1.8s</text>
+                <text x="102" y="350" fill="#9d9797" font-size="11">4 steps · 2 tool calls · 0 errors — fully traceable</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Tab showcase ======================= -->
+    <section class="ds-section ds-section--tight" aria-labelledby="showcase-title">
+      <div class="ds-container">
+        <h2 class="ds-section-title ds-reveal" id="showcase-title" style="text-align:center;margin-bottom:.75rem">One canvas, endless jobs to automate</h2>
+        <p class="ds-lead ds-reveal" style="text-align:center;margin:0 auto 3rem">Pick a use case and see the workflow behind it. Every node below is real Flowmint — triggers, AI agents, and app actions working together.</p>
+        <div class="ds-tabs ds-reveal" data-tabs>
+          <div class="ds-tablist" role="tablist" aria-label="Use cases">
+            <button class="ds-tab" role="tab" id="tab-itonboard" aria-selected="true" aria-controls="panel-itonboard">
+              <span class="ds-tab__title">Onboard new hires in IT</span>
+              <span class="ds-tab__desc">From HR form to fully provisioned accounts — no tickets, no waiting.</span>
+            </button>
+            <button class="ds-tab" role="tab" id="tab-sectriage" aria-selected="false" aria-controls="panel-sectriage" tabindex="-1">
+              <span class="ds-tab__title">Enrich security tickets</span>
+              <span class="ds-tab__desc">Turn raw alerts into investigated, prioritized incidents.</span>
+            </button>
+            <button class="ds-tab" role="tab" id="tab-devapi" aria-selected="false" aria-controls="panel-devapi" tabindex="-1">
+              <span class="ds-tab__title">Turn language into API calls</span>
+              <span class="ds-tab__desc">Let developers describe what they need — the agent builds the call.</span>
+            </button>
+            <button class="ds-tab" role="tab" id="tab-sales" aria-selected="false" aria-controls="panel-sales" tabindex="-1">
+              <span class="ds-tab__title">Summarize sales calls</span>
+              <span class="ds-tab__desc">Every call transcribed, scored, and logged to the CRM.</span>
+            </button>
+            <button class="ds-tab" role="tab" id="tab-content" aria-selected="false" aria-controls="panel-content" tabindex="-1">
+              <span class="ds-tab__title">Draft content briefs</span>
+              <span class="ds-tab__desc">Research the topic, draft the brief, keep humans approving.</span>
+            </button>
+          </div>
+          <div>
+            <div class="ds-tabpanel" role="tabpanel" id="panel-itonboard" aria-labelledby="tab-itonboard" data-tab-canvas><div data-canvas-slot></div></div>
+            <div class="ds-tabpanel" role="tabpanel" id="panel-sectriage" aria-labelledby="tab-sectriage" data-tab-canvas hidden><div data-canvas-slot></div></div>
+            <div class="ds-tabpanel" role="tabpanel" id="panel-devapi" aria-labelledby="tab-devapi" data-tab-canvas hidden><div data-canvas-slot></div></div>
+            <div class="ds-tabpanel" role="tabpanel" id="panel-sales" aria-labelledby="tab-sales" data-tab-canvas hidden><div data-canvas-slot></div></div>
+            <div class="ds-tabpanel" role="tabpanel" id="panel-content" aria-labelledby="tab-content" data-tab-canvas hidden><div data-canvas-slot></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Social proof ======================= -->
+    <section class="ds-section ds-section--tight" aria-label="Flowmint in numbers">
+      <div class="ds-container">
+        <div class="ds-stats">
+          <div class="ds-stat ds-reveal">
+            <span class="ds-stat__icon" aria-hidden="true"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-users"/></svg></span>
+            <div><p class="ds-stat__value">140k+ builders</p><p class="ds-stat__label">A community sharing templates, nodes, and hard-won lessons every day.</p></div>
+          </div>
+          <div class="ds-stat ds-reveal ds-reveal--d1">
+            <span class="ds-stat__icon" aria-hidden="true"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-bolt"/></svg></span>
+            <div><p class="ds-stat__value">2.4B executions</p><p class="ds-stat__label">Workflow runs processed last year across Cloud and self-hosted installs.</p></div>
+          </div>
+          <div class="ds-stat ds-reveal ds-reveal--d2">
+            <span class="ds-stat__icon" aria-hidden="true"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-star"/></svg></span>
+            <div><p class="ds-stat__value">4.8 / 5 rating</p><p class="ds-stat__label">Average score across public review sites from verified users.</p></div>
+          </div>
+        </div>
+        <p class="ds-muted ds-reveal" style="font-size:.8rem;margin-top:1.25rem;text-align:center">Figures above are illustrative for this demo.</p>
+      </div>
+    </section>
+
+    <!-- ======================= Logo marquee ======================= -->
+    <section class="ds-section ds-section--tight" aria-label="Companies building with Flowmint" style="padding-top:0">
+      <div class="ds-container">
+        <p class="ds-eyebrow ds-reveal" style="text-align:center">Teams automating with Flowmint</p>
+      </div>
+      <div class="ds-marquee ds-reveal" style="--ds-marquee-speed:28s">
+        <div class="ds-marquee__track">
+          <div class="ds-marquee__item" aria-hidden="true">
+            <span style="font-weight:700;letter-spacing:.18em;color:#7a7a7a;font-size:1.1rem">HELIX</span><span style="font-weight:600;letter-spacing:.1em;color:#7a7a7a;font-size:1.1rem">Nordlys</span><span style="font-weight:700;color:#7a7a7a;font-size:1.15rem">KODA&trade;</span><span style="font-weight:300;letter-spacing:.22em;color:#7a7a7a;font-size:1.1rem">LUMIQ</span><span style="font-weight:600;font-style:italic;color:#7a7a7a;font-size:1.1rem">Orbita</span><span style="font-weight:700;letter-spacing:.08em;color:#7a7a7a;font-size:1.1rem">ZENITH</span>
+          </div>
+          <div class="ds-marquee__item" aria-hidden="true">
+            <span style="font-weight:600;letter-spacing:.14em;color:#7a7a7a;font-size:1.1rem">PULSAR</span><span style="font-weight:300;color:#7a7a7a;font-size:1.15rem">nimbus</span><span style="font-weight:700;letter-spacing:.12em;color:#7a7a7a;font-size:1.1rem">KESTREL</span><span style="font-weight:600;color:#7a7a7a;font-size:1.1rem">Voltaic</span><span style="font-weight:700;letter-spacing:.2em;color:#7a7a7a;font-size:1.05rem">STRATA</span><span style="font-weight:300;font-style:italic;color:#7a7a7a;font-size:1.15rem">Halcyon</span>
+          </div>
+        </div>
+      </div>
+      <p class="ds-sr-only">Customer names shown are fictional placeholder brands used for demonstration.</p>
+    </section>
+
+    <!-- ======================= Integrations band ======================= -->
+    <section class="ds-section" aria-labelledby="integrations-title">
+      <div class="ds-container">
+        <div class="ds-reveal" style="display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:2.5rem">
+          <div>
+            <p class="ds-eyebrow">Integrations</p>
+            <h2 class="ds-section-title" id="integrations-title">Plug AI into the tools you already use</h2>
+            <p class="ds-lead" style="margin-top:1rem">Hundreds of ready-made connections — chat, CRM, databases, AI models, and anything with an API.</p>
+          </div>
+          <a class="ds-btn ds-btn--blue" href="/integrations/">Browse all integrations
+            <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg>
+          </a>
+        </div>
+        <div class="ds-tiles ds-reveal" data-home-tiles>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">S</span><span>Slack</span></a>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">G</span><span>Gmail</span></a>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">O</span><span>OpenAI</span></a>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">H</span><span>HubSpot</span></a>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">P</span><span>PostgreSQL</span></a>
+          <a class="ds-tile" href="/integrations/"><span class="ds-tile__glyph" aria-hidden="true">G</span><span>GitHub</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Feature trio ======================= -->
+    <section class="ds-section" aria-labelledby="trio-title" style="padding-top:0">
+      <div class="ds-container">
+        <h2 class="ds-section-title ds-reveal" id="trio-title" style="text-align:center;margin-bottom:.75rem">Build AI agents you can actually follow</h2>
+        <p class="ds-lead ds-reveal" style="text-align:center;margin:0 auto 3rem">Powerful automation is only useful if you can trust it. Flowmint is designed for visibility from the ground up.</p>
+        <div class="ds-trio">
+          <article class="ds-card ds-card--tint-pink ds-card--hoverable ds-reveal">
+            <span class="ds-stat__icon" aria-hidden="true" style="margin-bottom:1.25rem"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-eye"/></svg></span>
+            <h3>AI without the black box</h3>
+            <p>Every agent step is on the record: model calls, tool use, and reasoning. Inspect any run, replay it, and see exactly why the AI did what it did.</p>
+          </article>
+          <article class="ds-card ds-card--tint-purple ds-card--hoverable ds-reveal ds-reveal--d1">
+            <span class="ds-stat__icon" aria-hidden="true" style="margin-bottom:1.25rem"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-rocket"/></svg></span>
+            <h3>Deploy wherever you decide</h3>
+            <p>Flowmint Cloud for zero setup, your own VPC for control, or fully air-gapped for the strictest rules. The same builder runs everywhere.</p>
+          </article>
+          <article class="ds-card ds-card--tint-blue ds-card--hoverable ds-reveal ds-reveal--d2">
+            <span class="ds-stat__icon" aria-hidden="true" style="margin-bottom:1.25rem"><svg width="22" height="22"><use href="/assets/icons/icons.svg#i-shield"/></svg></span>
+            <h3>Humans stay in the loop</h3>
+            <p>Pause any workflow for approval before it acts. Add guardrails to agents, review consequential steps, and keep people in charge.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Split band 1 ======================= -->
+    <section class="ds-section" aria-labelledby="split1-title" style="padding-top:0">
+      <div class="ds-container">
+        <div class="ds-split">
+          <div class="ds-reveal">
+            <p class="ds-eyebrow">Builder + code</p>
+            <h2 class="ds-section-title" id="split1-title">Visual when you want it,<br>code when you need it</h2>
+            <p class="ds-lead" style="margin-top:1.25rem">Drag, drop, and connect for 90% of the work. When logic gets hairy, drop in JavaScript or Python and keep moving — no exporting, no context switching.</p>
+            <ul class="ds-checklist">
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Full JavaScript and Python runtime inside any workflow</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Import npm and PyPI packages directly in Code nodes</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Build custom nodes with the SDK and share them with your team</li>
+            </ul>
+          </div>
+          <div class="ds-reveal ds-reveal--d1" aria-hidden="true">
+            <div class="ds-card ds-card--navy" style="font-family:var(--ds-font-mono);font-size:.85rem">
+              <p style="color:#7a7a7a;margin:0 0 .75rem">// Code node — runs inside your workflow</p>
+              <p style="margin:0"><span style="color:#ff9b26">const</span> <span style="color:#fff">deals</span> = <span style="color:#fff">$input</span>.all();</p>
+              <p style="margin:.35rem 0"><span style="color:#ff9b26">return</span> deals.<span style="color:#7dd3fc">filter</span>(d =&gt;</p>
+              <p style="margin:.35rem 0 0 .75rem">d.json.value &gt; <span style="color:#f0abfc">10000</span> &amp;&amp;</p>
+              <p style="margin:.35rem 0 .75rem .75rem">!d.json.stalled</p>
+              <p style="margin:0">).<span style="color:#7dd3fc">map</span>(d =&gt; ({ json: {</p>
+              <p style="margin:.35rem 0 .75rem .75rem">...d.json, priority: <span style="color:#a5f3c8">'high'</span> } }));</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Split band 2 ======================= -->
+    <section class="ds-section" aria-labelledby="split2-title" style="padding-top:0">
+      <div class="ds-container">
+        <div class="ds-split ds-split--flip">
+          <div class="ds-reveal">
+            <p class="ds-eyebrow">Debugging</p>
+            <h2 class="ds-section-title" id="split2-title">Ship fast without<br>breaking things</h2>
+            <p class="ds-lead" style="margin-top:1.25rem">Production issues stop being mysteries. Every execution keeps its inputs, outputs, and timings — so you fix the step, not the whole workflow.</p>
+            <ul class="ds-checklist">
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Re-run a failed execution from the exact step that broke</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Replay runs with mock data before touching production</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-check"/></svg>Version history with one-click rollback on every workflow</li>
+            </ul>
+          </div>
+          <div class="ds-reveal ds-reveal--d1" aria-hidden="true">
+            <div class="ds-card ds-card--navy">
+              <p class="ds-eyebrow" style="margin-bottom:1rem">Execution #48,212</p>
+              <div style="display:grid;gap:.6rem;font-size:.9rem">
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#fff">Webhook received</span><span style="color:#34c77b">0.04s ✓</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#fff">AI agent plans</span><span style="color:#34c77b">1.12s ✓</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="color:#fff">CRM update</span><span style="color:#ff8a7a">failed · retry from here</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;opacity:.45"><span>Notify channel</span><span>waiting</span></div>
+              </div>
+              <p style="margin:1.25rem 0 0"><span class="ds-btn ds-btn--dark" style="font-size:.8rem">Re-run from failed step</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Case studies ======================= -->
+    <section class="ds-section" aria-labelledby="cases-title" style="padding-top:0">
+      <div class="ds-container">
+        <h2 class="ds-section-title ds-reveal" id="cases-title" style="text-align:center;margin-bottom:3rem">Loved by teams with real work to do</h2>
+        <div class="ds-cases">
+          <article class="ds-card ds-card--tint-pink ds-reveal">
+            <p class="ds-eyebrow">Meridian Grocers · Retail</p>
+            <p class="ds-case__metric">1,400 hours saved per quarter</p>
+            <p class="ds-case__quote">"We stopped babysitting data and started acting on it. Inventory syncs itself now."</p>
+            <p><button class="ds-btn ds-btn--ghost" data-case-open="meridian">Read case study
+              <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg></button></p>
+          </article>
+          <article class="ds-card ds-card--tint-purple ds-reveal ds-reveal--d1">
+            <p class="ds-eyebrow">Atlas Freight · Logistics</p>
+            <p class="ds-case__metric">$2.1M in prevented losses</p>
+            <p class="ds-case__quote">"Exceptions route themselves to the right dispatcher before customers even notice."</p>
+            <p><button class="ds-btn ds-btn--ghost" data-case-open="atlas">Read case study
+              <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg></button></p>
+          </article>
+        </div>
+        <p class="ds-muted ds-reveal" style="font-size:.8rem;text-align:center;margin-top:1.5rem">Case studies feature fictional placeholder brands for demonstration.</p>
+      </div>
+    </section>
+
+    <!-- ======================= Enterprise band ======================= -->
+    <section class="ds-section" aria-labelledby="enterprise-title" style="padding-top:0">
+      <div class="ds-container">
+        <div class="ds-card ds-card--navy ds-reveal" style="padding:clamp(2rem,5vw,4rem)">
+          <p class="ds-eyebrow">Enterprise</p>
+          <h2 class="ds-section-title" id="enterprise-title">Automation your security team will approve</h2>
+          <p class="ds-lead" style="margin-top:1rem">Scale Flowmint across departments without losing control — governance, visibility, and compliance built in.</p>
+          <div class="ds-capgrid" style="margin-top:2.5rem">
+            <div><h3>Security &amp; control</h3><p>SSO/SAML, SCIM provisioning, granular RBAC, and a shared credentials vault with rotation.</p></div>
+            <div><h3>Observability</h3><p>Immutable audit logs, per-step execution traces, and metrics streaming to your monitoring stack.</p></div>
+            <div><h3>Developer experience</h3><p>Environments, Git-backed versioning, and APIs for everything the UI can do.</p></div>
+            <div><h3>AI governance</h3><p>Approval gates for agent actions, model allowlists, and full prompt/output logging.</p></div>
+          </div>
+          <div class="ds-hero__ctas">
+            <a class="ds-btn ds-btn--cta" href="/contact/">Talk to sales
+              <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg></a>
+            <a class="ds-btn ds-btn--ghost" href="/docs/">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Testimonial marquee ======================= -->
+    <section class="ds-section" aria-label="What the community says" style="padding-top:0">
+      <div class="ds-container">
+        <h2 class="ds-section-title ds-reveal" style="text-align:center;margin-bottom:2.5rem">What builders say</h2>
+      </div>
+      <div class="ds-marquee ds-reveal" style="--ds-marquee-speed:45s;--ds-marquee-direction:reverse">
+        <div class="ds-marquee__track" style="align-items:stretch">
+          <div class="ds-marquee__item" style="align-items:stretch">
+            <article class="ds-card ds-quote"><blockquote>"I replaced four separate tools and a cron server with Flowmint in a weekend. The canvas just makes sense."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Lena K.</span><br><span class="ds-quote__handle">@lena_builds</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"The first platform where I can actually see what the AI did. Debugging agents went from scary to fun."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Marcus O.</span><br><span class="ds-quote__handle">@marcusops</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"Self-hosted on our cluster in 20 minutes. Our security team actually smiled."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Devika P.</span><br><span class="ds-quote__handle">@devikapatel</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"We run millions of executions a month through Flowmint and it hasn't blinked once."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Sam R.</span><br><span class="ds-quote__handle">@scale_sam</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"The human-in-the-loop node is genius. Agents draft, humans approve, customers happy."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Priya S.</span><br><span class="ds-quote__handle">@priya_ships</span></span></div></article>
+          </div>
+          <div class="ds-marquee__item" style="align-items:stretch" aria-hidden="true">
+            <article class="ds-card ds-quote"><blockquote>"Went from idea to production workflow in an afternoon. My PM thinks I'm a wizard now."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Tom W.</span><br><span class="ds-quote__handle">@tom_automates</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"Version history saved us during a bad deploy. Rolled back in one click."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Ivy C.</span><br><span class="ds-quote__handle">@infra_ivy</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"Finally, AI agents I can show my boss without a 40-slide explainer."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Dave M.</span><br><span class="ds-quote__handle">@dave_demos</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"The community templates are gold. I barely build from scratch anymore."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Nora F.</span><br><span class="ds-quote__handle">@nora_nocode</span></span></div></article>
+            <article class="ds-card ds-quote"><blockquote>"Migrated hundreds of workflows over a weekend. The importer handled almost all of them."</blockquote><div class="ds-quote__who"><span class="ds-quote__avatar" aria-hidden="true"></span><span><span class="ds-quote__name">Miguel A.</span><br><span class="ds-quote__handle">@miguel_moves</span></span></div></article>
+          </div>
+        </div>
+      </div>
+      <p class="ds-muted" style="font-size:.8rem;text-align:center;margin-top:1.25rem">Testimonials are fictional and illustrative.</p>
+    </section>
+
+    <!-- ======================= Final CTA ======================= -->
+    <section class="ds-section" aria-labelledby="final-cta-title" style="padding-top:0">
+      <div class="ds-container">
+        <div class="ds-final-cta ds-reveal">
+          <h2 class="ds-display-md" id="final-cta-title">Your first workflow is ten minutes away</h2>
+          <p>Start free, connect your favorite tools, and watch your first automation run before your coffee cools.</p>
+          <button class="ds-btn ds-btn--light" data-auth-open="signup" style="padding:1rem 2.25rem;font-size:1rem">Start building free
+            <svg class="ds-btn__icon" width="16" height="16" aria-hidden="true"><use href="/assets/icons/icons.svg#i-arrow"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <!-- ======================= Footer ======================= -->
+  <div class="ds-prefooter-glow">
+    <footer>
+      <div class="ds-footer-card">
+        <div class="ds-footer__grid">
+          <div>
+            <a class="ds-brand" href="/" aria-label="Flowmint home" style="margin-bottom:1rem">
+              <img src="/assets/logo.svg" alt="Flowmint" width="132" height="28">
+            </a>
+            <p class="ds-footer__tagline">Automation you can see, control, and trust — from first node to production.</p>
+            <form data-lead-form="newsletter" data-form-wrap novalidate style="margin-top:1.5rem;max-width:20rem">
+              <div class="ds-field">
+                <label for="nl-email">Get product news</label>
+                <div style="display:flex;gap:.5rem">
+                  <input id="nl-email" type="email" name="email" placeholder="you@company.com" data-validate="required email" aria-describedby="nl-err" style="flex:1">
+                  <button class="ds-btn ds-btn--cta" type="submit">Join</button>
+                </div>
+                <span class="ds-field__error" id="nl-err"></span>
+              </div>
+            </form>
+          </div>
+          <nav class="ds-footer__col" aria-label="Product">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="/features/">Features</a></li>
+              <li><a href="/integrations/">Integrations</a></li>
+              <li><a href="/workflows/">Templates</a></li>
+              <li><a href="/pricing/">Pricing</a></li>
+              <li><a href="/features/#enterprise">Enterprise</a></li>
+              <li><a href="/docs/#changelog">Changelog</a></li>
+            </ul>
+          </nav>
+          <nav class="ds-footer__col" aria-label="Resources">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/docs/">Documentation</a></li>
+              <li><a href="/community/">Community</a></li>
+              <li><a href="/community/#updates">Blog</a></li>
+              <li><a href="/contact/">Support</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </nav>
+          <nav class="ds-footer__col" aria-label="Company">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="/legal/#about">About</a></li>
+              <li><a href="/legal/#careers">Careers <span class="ds-badge">Hiring</span></a></li>
+              <li><a href="/legal/#press">Press</a></li>
+              <li><a href="/legal/#partners">Partners</a></li>
+              <li><a href="/legal/">Legal</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="ds-footer__legal">
+          <span>&copy; <span data-year>2026</span> Flowmint. All rights reserved. Demo replica with original branding.</span>
+          <nav aria-label="Legal">
+            <a href="/legal/#imprint">Imprint</a>
+            <a href="/legal/#security">Security</a>
+            <a href="/legal/#privacy">Privacy</a>
+            <a href="/contact/?topic=security">Report a vulnerability</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Case study modal -->
+  <div class="ds-modal-backdrop" data-case-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="case-title">
+    <div class="ds-modal">
+      <button class="ds-modal__close" data-case-close aria-label="Close case study">&times;</button>
+      <p class="ds-eyebrow">Case study</p>
+      <h2 id="case-title" data-case-title style="color:#fff;margin:0 0 .5rem"></h2>
+      <p class="ds-accent" data-case-metric style="font-weight:600;margin:0 0 1.25rem"></p>
+      <p data-case-body style="color:var(--ds-text-body-dark)"></p>
+      <p style="margin-top:1.5rem"><button class="ds-btn ds-btn--cta" data-auth-open="signup">Start building free</button></p>
+    </div>
+  </div>
+
+  <!-- Auth modal -->
+  <div class="ds-modal-backdrop" data-auth-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="ds-modal">
+      <button class="ds-modal__close" data-auth-close aria-label="Close">&times;</button>
+      <h2 id="auth-title" class="ds-display-xxs ds-on-dark" style="margin:0 0 1.25rem">Get started with Flowmint</h2>
+      <div class="ds-modal__tabs" role="tablist" aria-label="Account">
+        <button class="ds-modal__tab" data-auth-tab="signup" aria-selected="true" role="tab">Request access</button>
+        <button class="ds-modal__tab" data-auth-tab="signin" aria-selected="false" role="tab">Sign in</button>
+      </div>
+      <form data-lead-form="signup" data-form="auth-signup" novalidate>
+        <div class="ds-field">
+          <label for="su-name">Name</label>
+          <input id="su-name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" data-validate="required">
+          <span class="ds-field__error"></span>
+        </div>
+        <div class="ds-field">
+          <label for="su-email">Work email</label>
+          <input id="su-email" name="email" type="email" autocomplete="email" placeholder="ada@company.com" data-validate="required email">
+          <span class="ds-field__error"></span>
+        </div>
+        <button class="ds-btn ds-btn--cta" type="submit" style="width:100%">Request early access</button>
+        <p class="ds-form-note" style="margin-top:1rem">Free plan · No credit card required · Cancel anytime</p>
+      </form>
+      <form data-lead-form="signin" data-form="auth-signin" hidden novalidate>
+        <div class="ds-field">
+          <label for="si-email">Email</label>
+          <input id="si-email" name="email" type="email" autocomplete="email" placeholder="ada@company.com" data-validate="required email">
+          <span class="ds-field__error"></span>
+        </div>
+        <button class="ds-btn ds-btn--cta" type="submit" style="width:100%">Request sign-in</button>
+        <p class="ds-form-note" style="margin-top:1rem">Live accounts aren't open yet — request access and we'll email you when sign-in opens.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/data.js"></script>
+</body>
+</html>

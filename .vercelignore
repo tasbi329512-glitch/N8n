@@ -1,0 +1,14 @@
+# Files excluded from the Vercel static deployment.
+# Patterns are anchored to the project root (leading slash) so that
+# site sections inside source/ (e.g. source/docs/) are NOT excluded.
+# api/server.js is a standalone long-lived Node server, NOT a Vercel
+# serverless function — it must not be uploaded or built by Vercel.
+/api/
+/scripts/
+/reports/
+/design-system/
+/docs/
+/research_notes/
+/node_modules/
+/.jarvis/
+/.git/

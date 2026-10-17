@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowmint Docs — guides and references</title>
+  <meta name="description" content="Flowmint documentation: getting started, executions and billing, self-hosting, MCP, RAG, custom nodes, and changelog.">
+  <meta property="og:title" content="Flowmint Docs — guides and references">
+  <meta property="og:description" content="Flowmint documentation: getting started, executions and billing, self-hosting, MCP, RAG, custom nodes, and changelog.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flowmint.io/docs/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fd8925'/%3E%3Cstop offset='1' stop-color='%23ff0c00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230e0918'/%3E%3Cg fill='url(%23g)'%3E%3Ccircle cx='10' cy='10' r='3.4'/%3E%3Ccircle cx='10' cy='22' r='3.4'/%3E%3Ccircle cx='22' cy='22' r='3.4'/%3E%3C/g%3E%3Cpath d='M12 10c4 0 4 6 8 6s3 4 0 4' stroke='url(%23g)' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/effects.css">
+</head>
+<body>
+  <a class="ds-skip" href="#main">Skip to content</a>
+
+  <!-- ======================= Site header ======================= -->
+  <header class="ds-header" data-site-header>
+    <div class="ds-header__bar">
+      <a class="ds-brand" href="/" aria-label="Flowmint home">
+        <img src="/assets/logo.svg" alt="Flowmint" width="132" height="28">
+      </a>
+      <nav class="ds-nav" aria-label="Global navigation">
+        <ul class="ds-nav__list">
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/features/">Product</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Product menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Product submenu">
+              <a href="/features/">Product overview</a>
+              <a href="/integrations/">Integrations</a>
+              <a href="/workflows/">Templates</a>
+              <a href="/features/#ai">AI automation</a>
+              <a href="/features/#mcp">Model context protocol</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/features/#use-cases">Use cases</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Use cases menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Use cases submenu">
+              <a href="/features/#ai-agents">Building AI agents</a>
+              <a href="/features/#it-operations">IT operations</a>
+              <a href="/features/#lead-automation">Lead automation</a>
+              <a href="/features/#secops">Security operations</a>
+              <a href="/features/#embed">Embedding Flowmint</a>
+              <a href="/features/#crm">Supercharge your CRM</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/docs/">Docs</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Docs menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Docs submenu">
+              <a href="/docs/">Documentation</a>
+              <a href="/docs/#self-hosting">Self-hosting guide</a>
+              <a href="/docs/#changelog">Changelog</a>
+              <a href="/legal/#license">License</a>
+            </div>
+          </li>
+          <li class="ds-nav__item" data-dropdown>
+            <a class="ds-nav__link" href="/community/">Community</a>
+            <button class="ds-nav__toggle" data-dropdown-toggle aria-expanded="false" aria-label="Open Community menu">
+              <svg class="ds-nav__chev" width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg>
+            </button>
+            <div class="ds-nav__panel" aria-label="Community submenu">
+              <a href="/community/">Forum</a>
+              <a href="/community/#creators">Creators</a>
+              <a href="/community/#events">Events</a>
+              <a href="/contact/">Support</a>
+              <a href="/docs/">Learn</a>
+            </div>
+          </li>
+          <li class="ds-nav__item">
+            <a class="ds-nav__link" href="/features/#enterprise">Enterprise</a>
+          </li>
+          <li class="ds-nav__item">
+            <a class="ds-nav__link" href="/pricing/">Pricing</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="ds-header__actions">
+        <button class="ds-signin" data-auth-open="signin" type="button">Sign in</button>
+        <button class="ds-btn ds-btn--pill" data-auth-open="signup">Get Started</button>
+        <button class="ds-burger" data-drawer-open aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="ds-drawer" data-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+      <img src="/assets/logo.svg" alt="Flowmint" width="120" height="26">
+      <button class="ds-drawer__close" data-drawer-close aria-label="Close menu">&times;</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <div style="display:grid;gap:.25rem">
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-prod" style="width:100%;justify-content:space-between">Product <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-prod" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/features/">Product overview</a>
+          <a class="ds-nav__link" href="/integrations/">Integrations</a>
+          <a class="ds-nav__link" href="/workflows/">Templates</a>
+          <a class="ds-nav__link" href="/features/#ai">AI automation</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-use" style="width:100%;justify-content:space-between">Use cases <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-use" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/features/#ai-agents">Building AI agents</a>
+          <a class="ds-nav__link" href="/features/#it-operations">IT operations</a>
+          <a class="ds-nav__link" href="/features/#secops">Security operations</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-docs" style="width:100%;justify-content:space-between">Docs <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-docs" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/docs/">Documentation</a>
+          <a class="ds-nav__link" href="/docs/#self-hosting">Self-hosting guide</a>
+          <a class="ds-nav__link" href="/docs/#changelog">Changelog</a>
+        </div>
+        <button class="ds-nav__link" data-drawer-acc aria-expanded="false" aria-controls="m-com" style="width:100%;justify-content:space-between">Community <svg width="14" height="14" aria-hidden="true"><use href="/assets/icons/icons.svg#i-chevron"/></svg></button>
+        <div id="m-com" hidden style="padding-left:1rem;display:grid">
+          <a class="ds-nav__link" href="/community/">Forum</a>
+          <a class="ds-nav__link" href="/community/#creators">Creators</a>
+          <a class="ds-nav__link" href="/community/#events">Events</a>
+        </div>
+        <a class="ds-nav__link" href="/features/#enterprise">Enterprise</a>
+        <a class="ds-nav__link" href="/pricing/">Pricing</a>
+      </div>
+    </nav>
+    <div style="display:grid;gap:.75rem;margin-top:2rem">
+      <button class="ds-btn ds-btn--pill ds-btn--full-mobile" data-auth-open="signup">Get Started</button>
+      <button class="ds-btn ds-btn--ghost ds-btn--full-mobile" data-auth-open="signin" type="button">Sign in</button>
+    </div>
+  </div>
+
+  <main id="main">
+<!-- ======================= Docs hero ======================= -->
+    <section class="ds-hero ds-glow-field" aria-labelledby="docs-title" style="padding-bottom:2rem">
+      <div class="ds-container" style="text-align:center">
+        <p class="ds-eyebrow ds-reveal">Docs</p>
+        <h1 class="ds-hero-title ds-reveal ds-reveal--d1" id="docs-title">Documentation</h1>
+        <p class="ds-lead ds-reveal ds-reveal--d2" style="margin:1.25rem auto 0">Guides, references, and release notes — everything you need to build with Flowmint.</p>
+        <div class="ds-search ds-reveal ds-reveal--d3" style="margin:2rem auto 0">
+          <svg width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-search"/></svg>
+          <input type="search" id="docs-search" placeholder="Search docs…" aria-label="Search docs">
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section ds-section--tight" aria-label="Guides">
+      <div class="ds-container">
+        <div class="ds-doc-grid">
+          <nav class="ds-doc-grid__toc" aria-label="Docs sections">
+            <a href="#getting-started">Getting started</a>
+            <a href="#executions">Executions &amp; billing</a>
+            <a href="#self-hosting">Self-hosting</a>
+            <a href="#mcp">Model context protocol</a>
+            <a href="#rag">RAG pipelines</a>
+            <a href="#custom-nodes">Custom nodes</a>
+            <a href="#changelog">Changelog</a>
+          </nav>
+          <div style="display:grid;gap:2.5rem;max-width:48rem" data-docs-list>
+            <section aria-labelledby="gs-h" id="getting-started" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="gs-h">Getting started</h2>
+              <p>Create an account, connect your first app, and run a template in under ten minutes. The canvas has three building blocks: <span class="ds-code">triggers</span> start workflows, <span class="ds-code">nodes</span> do work, and <span class="ds-code">connections</span> carry data between them. Click any node to see live data from your last run.</p>
+            </section>
+            <section aria-labelledby="ex-h" id="executions" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="ex-h">Executions &amp; billing</h2>
+              <p>One execution = one run of a workflow, regardless of step count. Editor test runs are free. When you exceed your plan's quota, extra executions are billed at the overage rate shown on the <a href="/pricing/" style="color:var(--ds-accent-orange)">pricing page</a> — we'll warn you at 80% and 100% first.</p>
+            </section>
+            <section aria-labelledby="sh-h" id="self-hosting" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="sh-h">Self-hosting guide</h2>
+              <p>Run the Community Edition anywhere Docker runs:</p>
+              <p><span class="ds-code">docker run -d --name flowmint -p 5678:5678 flowmint/flowmint</span></p>
+              <p>Mount a volume for <span class="ds-code">/data</span> to persist workflows and credentials. For production, use the Compose file with Postgres and Redis, put it behind TLS, and set <span class="ds-code">FM_ENCRYPTION_KEY</span>. Kubernetes manifests are provided for larger installs.</p>
+            </section>
+            <section aria-labelledby="mcp-h" id="mcp" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="mcp-h">Model context protocol</h2>
+              <p>Any workflow can be exposed as an MCP tool: enable "MCP server" on the workflow, and models can discover and call it with typed inputs. Conversely, the MCP Client node lets your agents call external MCP servers — databases, file systems, and third-party tools — with credentials managed in the vault.</p>
+            </section>
+            <section aria-labelledby="rag-h" id="rag" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="rag-h">RAG pipelines</h2>
+              <p>The standard pattern: a scheduled workflow ingests documents, chunks them, and upserts embeddings into your vector store. Agent workflows then retrieve relevant passages before answering. Keep the ingestion workflow on a schedule so answers stay fresh as docs change.</p>
+            </section>
+            <section aria-labelledby="cn-h" id="custom-nodes" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="cn-h">Custom nodes</h2>
+              <p>Package any API as a native node with the Node SDK: declare operations and credentials once, and the builder generates the UI. Publish to your team library or share with the community.</p>
+            </section>
+            <section aria-labelledby="cl-h" id="changelog" class="ds-reveal" data-doc-item>
+              <h2 class="ds-display-xxs ds-on-dark" id="cl-h">Changelog</h2>
+              <div class="ds-accordion" data-accordion-scope>
+                <div class="ds-accordion__item">
+                  <button class="ds-accordion__button" data-accordion-btn aria-expanded="true" aria-controls="cl-1"><span>2.0 — Visual AI orchestration</span><svg class="ds-accordion__icon" width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-plus"/></svg></button>
+                  <div class="ds-accordion__panel" id="cl-1" role="region"><div><div class="ds-accordion__body"><p style="margin:0">Agent nodes with tool calling, human-in-the-loop approvals, MCP server/client support, and execution replay with mock data.</p></div></div></div>
+                </div>
+                <div class="ds-accordion__item">
+                  <button class="ds-accordion__button" data-accordion-btn aria-expanded="false" aria-controls="cl-2"><span>1.9 — Environments &amp; versioning</span><svg class="ds-accordion__icon" width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-plus"/></svg></button>
+                  <div class="ds-accordion__panel" id="cl-2" role="region"><div><div class="ds-accordion__body"><p style="margin:0">Dev/staging/prod environments, Git-backed version history with one-click rollback, and shared credentials vault.</p></div></div></div>
+                </div>
+                <div class="ds-accordion__item">
+                  <button class="ds-accordion__button" data-accordion-btn aria-expanded="false" aria-controls="cl-3"><span>1.8 — Execution observability</span><svg class="ds-accordion__icon" width="18" height="18" aria-hidden="true"><use href="/assets/icons/icons.svg#i-plus"/></svg></button>
+                  <div class="ds-accordion__panel" id="cl-3" role="region"><div><div class="ds-accordion__body"><p style="margin:0">Immutable per-step logs, error workflows, and metrics streaming to external observability stacks.</p></div></div></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Simple client-side docs search: filters sections by heading + text.
+      (function () {
+        var input = document.getElementById('docs-search');
+        if (!input) return;
+        var items = Array.prototype.slice.call(document.querySelectorAll('[data-doc-item]'));
+        var t = null;
+        input.addEventListener('input', function () {
+          clearTimeout(t);
+          t = setTimeout(function () {
+            var q = input.value.trim().toLowerCase();
+            items.forEach(function (el) {
+              el.style.display = (!q || el.textContent.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+            });
+          }, 160);
+        });
+      })();
+    </script>
+</main>
+
+  <!-- ======================= Footer ======================= -->
+  <div class="ds-prefooter-glow">
+    <footer>
+      <div class="ds-footer-card">
+        <div class="ds-footer__grid">
+          <div>
+            <a class="ds-brand" href="/" aria-label="Flowmint home" style="margin-bottom:1rem">
+              <img src="/assets/logo.svg" alt="Flowmint" width="132" height="28">
+            </a>
+            <p class="ds-footer__tagline">Automation you can see, control, and trust — from first node to production.</p>
+            <form data-lead-form="newsletter" data-form-wrap novalidate style="margin-top:1.5rem;max-width:20rem">
+              <div class="ds-field">
+                <label for="nl-email">Get product news</label>
+                <div style="display:flex;gap:.5rem">
+                  <input id="nl-email" type="email" name="email" placeholder="you@company.com" data-validate="required email" aria-describedby="nl-err" style="flex:1">
+                  <button class="ds-btn ds-btn--cta" type="submit">Join</button>
+                </div>
+                <span class="ds-field__error" id="nl-err"></span>
+              </div>
+            </form>
+          </div>
+          <nav class="ds-footer__col" aria-label="Product">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="/features/">Features</a></li>
+              <li><a href="/integrations/">Integrations</a></li>
+              <li><a href="/workflows/">Templates</a></li>
+              <li><a href="/pricing/">Pricing</a></li>
+              <li><a href="/features/#enterprise">Enterprise</a></li>
+              <li><a href="/docs/#changelog">Changelog</a></li>
+            </ul>
+          </nav>
+          <nav class="ds-footer__col" aria-label="Resources">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="/docs/">Documentation</a></li>
+              <li><a href="/community/">Community</a></li>
+              <li><a href="/community/#updates">Blog</a></li>
+              <li><a href="/contact/">Support</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </nav>
+          <nav class="ds-footer__col" aria-label="Company">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="/legal/#about">About</a></li>
+              <li><a href="/legal/#careers">Careers <span class="ds-badge">Hiring</span></a></li>
+              <li><a href="/legal/#press">Press</a></li>
+              <li><a href="/legal/#partners">Partners</a></li>
+              <li><a href="/legal/">Legal</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="ds-footer__legal">
+          <span>&copy; <span data-year>2026</span> Flowmint. All rights reserved. Demo replica with original branding.</span>
+          <nav aria-label="Legal">
+            <a href="/legal/#imprint">Imprint</a>
+            <a href="/legal/#security">Security</a>
+            <a href="/legal/#privacy">Privacy</a>
+            <a href="/contact/?topic=security">Report a vulnerability</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Case study modal -->
+  <div class="ds-modal-backdrop" data-case-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="case-title">
+    <div class="ds-modal">
+      <button class="ds-modal__close" data-case-close aria-label="Close case study">&times;</button>
+      <p class="ds-eyebrow">Case study</p>
+      <h2 id="case-title" data-case-title style="color:#fff;margin:0 0 .5rem"></h2>
+      <p class="ds-accent" data-case-metric style="font-weight:600;margin:0 0 1.25rem"></p>
+      <p data-case-body style="color:var(--ds-text-body-dark)"></p>
+      <p style="margin-top:1.5rem"><button class="ds-btn ds-btn--cta" data-auth-open="signup">Start building free</button></p>
+    </div>
+  </div>
+
+  <!-- Auth modal -->
+  <div class="ds-modal-backdrop" data-auth-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="ds-modal">
+      <button class="ds-modal__close" data-auth-close aria-label="Close">&times;</button>
+      <h2 id="auth-title" class="ds-display-xxs ds-on-dark" style="margin:0 0 1.25rem">Get started with Flowmint</h2>
+      <div class="ds-modal__tabs" role="tablist" aria-label="Account">
+        <button class="ds-modal__tab" data-auth-tab="signup" aria-selected="true" role="tab">Request access</button>
+        <button class="ds-modal__tab" data-auth-tab="signin" aria-selected="false" role="tab">Sign in</button>
+      </div>
+      <form data-lead-form="signup" data-form="auth-signup" novalidate>
+        <div class="ds-field">
+          <label for="su-name">Name</label>
+          <input id="su-name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" data-validate="required">
+          <span class="ds-field__error"></span>
+        </div>
+        <div class="ds-field">
+          <label for="su-email">Work email</label>
+          <input id="su-email" name="email" type="email" autocomplete="email" placeholder="ada@company.com" data-validate="required email">
+          <span class="ds-field__error"></span>
+        </div>
+        <button class="ds-btn ds-btn--cta" type="submit" style="width:100%">Request early access</button>
+        <p class="ds-form-note" style="margin-top:1rem">Free plan · No credit card required · Cancel anytime</p>
+      </form>
+      <form data-lead-form="signin" data-form="auth-signin" hidden novalidate>
+        <div class="ds-field">
+          <label for="si-email">Email</label>
+          <input id="si-email" name="email" type="email" autocomplete="email" placeholder="ada@company.com" data-validate="required email">
+          <span class="ds-field__error"></span>
+        </div>
+        <button class="ds-btn ds-btn--cta" type="submit" style="width:100%">Request sign-in</button>
+        <p class="ds-form-note" style="margin-top:1rem">Live accounts aren't open yet — request access and we'll email you when sign-in opens.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/data.js"></script>
+</body>
+</html>

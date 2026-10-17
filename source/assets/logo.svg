@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 32" role="img" aria-label="Flowmint home">
+  <defs>
+    <linearGradient id="fm-mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fd8925"/>
+      <stop offset="1" stop-color="#ff0c00"/>
+    </linearGradient>
+  </defs>
+  <!-- Original Flowmint mark: three workflow nodes joined by a flow path -->
+  <g fill="none" stroke="url(#fm-mark)" stroke-width="2.4" stroke-linecap="round">
+    <path d="M8 9 C 13 9, 13 16, 18 16 S 23 23, 27 23"/>
+    <path d="M8 23 C 12 23, 12 19, 15.5 17.5"/>
+  </g>
+  <g fill="url(#fm-mark)">
+    <circle cx="6" cy="9" r="3.4"/>
+    <circle cx="6" cy="23" r="3.4"/>
+    <circle cx="28" cy="23" r="3.4"/>
+    <circle cx="18" cy="16" r="2.4" fill="#0e0918" stroke="url(#fm-mark)" stroke-width="2"/>
+  </g>
+  <text x="40" y="22.5" font-family="Manrope, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="-0.5" fill="#ffffff">flowmint</text>
+</svg>

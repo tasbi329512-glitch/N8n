@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Flowmint — Base styles
+   Product build · 2026-10-17
+   --------------------------------------------------------------------------
+   Foundation layer. Load order: tokens.css → base.css → components.css →
+   effects.css. Original code; complements the design-system files.
+   ========================================================================== */
+
+/* Inherit fonts in form controls; the UA default (system-ui) would clash
+   with the Manrope stack declared on body. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Anchor targets sit below the fixed header pill. */
+html {
+  scroll-padding-top: calc(var(--ds-header-nav-h) + 3.5rem);
+}
+
+/* Landmark spacing safety net: <main> always clears the fixed header. */
+main {
+  display: block;
+}
+
+/* Images that are links get no stray descender gap. */
+a > img,
+a > svg {
+  vertical-align: middle;
+}
+
+/* Long URLs / handles in cards shouldn't blow out narrow viewports. */
+.ds-card,
+.ds-tile {
+  overflow-wrap: break-word;
+}
+
+/* Muted horizontal rule for light structural breaks on dark pages. */
+hr.ds-rule {
+  border: 0;
+  border-top: 1px solid var(--ds-border-dark);
+  margin: 2.5rem 0;
+}
+
+/* Sign-in is a <button> (opens the auth modal); reset button chrome. */
+button.ds-signin { background: none; border: 0; padding: 0; cursor: pointer; }
+
+/* Split nav item: label link navigates, chevron button toggles the panel. */
+.ds-nav__split { display: inline-flex; align-items: center; }
+.ds-nav__toggle {
+  background: none; border: 0; color: var(--ds-text-body-dark); cursor: pointer;
+  padding: 0.6rem 0.5rem 0.6rem 0.1rem; display: inline-flex; align-items: center;
+  border-radius: var(--ds-radius-md); line-height: 1;
+}
+.ds-nav__toggle:hover { color: var(--ds-text-on-dark); background: rgba(255,255,255,.06); }
+.ds-nav__toggle .ds-nav__chev { display: block; }
+
+/* Page-top offset wrapper: every page's first hero clears the header. */
+.ds-page-top {
+  padding-top: calc(var(--ds-header-nav-h) + var(--ds-header-offset) + 1rem);
+}
+
+/* Two-column "label + body" rows used on docs/legal pages. */
+.ds-doc-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 64rem) {
+  .ds-doc-grid { grid-template-columns: 16rem 1fr; }
+}
+.ds-doc-grid__toc {
+  position: sticky;
+  top: calc(var(--ds-header-nav-h) + 3rem);
+  align-self: start;
+  display: grid;
+  gap: 0.5rem;
+}
+.ds-doc-grid__toc a {
+  color: var(--ds-text-muted-dark);
+  text-decoration: none;
+  font-size: var(--ds-text-sm);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--ds-radius-md);
+}
+.ds-doc-grid__toc a:hover,
+.ds-doc-grid__toc a[aria-current="true"] {
+  color: var(--ds-text-on-dark);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Inline code chips for docs content. */
+.ds-code {
+  font-family: var(--ds-font-mono);
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--ds-border-dark);
+  border-radius: var(--ds-radius-sm);
+  padding: 0.1em 0.45em;
+  white-space: nowrap;
+}
+
+/* Form rows shared by contact / newsletter / auth modal. */
+.ds-field { display: grid; gap: 0.45rem; margin-bottom: 1.1rem; }
+.ds-field label { font-size: var(--ds-text-sm); font-weight: var(--ds-weight-medium); color: var(--ds-text-on-dark); }
+.ds-field input,
+.ds-field select,
+.ds-field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--ds-surface-navy);
+  border: 1px solid var(--ds-border-dark);
+  border-radius: var(--ds-radius-lg);
+  color: var(--ds-text-on-dark);
+}
+.ds-field input::placeholder,
+.ds-field textarea::placeholder { color: var(--ds-text-muted-dark); }
+.ds-field input:focus,
+.ds-field select:focus,
+.ds-field textarea:focus {
+  outline: 2px solid var(--ds-accent-orange);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+.ds-field__error { font-size: var(--ds-text-sm); color: #ff8a7a; min-height: 1.25em; }
+.ds-field input[aria-invalid="true"],
+.ds-field textarea[aria-invalid="true"] { border-color: rgba(255, 110, 90, 0.65); }
+
+.ds-form-note { font-size: var(--ds-text-sm); color: var(--ds-text-muted-dark); }
+.ds-form-success {
+  border: 1px solid rgba(52, 199, 123, 0.4);
+  background: rgba(52, 199, 123, 0.08);
+  border-radius: var(--ds-radius-lg);
+  padding: 1.25rem 1.5rem;
+  color: var(--ds-text-body-dark);
+}
+.ds-form-success strong { color: var(--ds-text-on-dark); display: block; margin-bottom: 0.35rem; }
+.ds-form-success--error {
+  border-color: rgba(255, 110, 90, 0.45);
+  background: rgba(255, 110, 90, 0.08);
+}
+
+/* Pricing cost calculator */
+.ds-calc input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fd8925, #ff0c00);
+  outline-offset: 4px;
+  margin: 1rem 0 0.5rem;
+}
+.ds-calc input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ff7a1a;
+  cursor: pointer;
+}
+.ds-calc input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ff7a1a;
+  cursor: pointer;
+}
+
+/* Auth modal (Get Started / Sign in). */
+.ds-modal-backdrop {
+  position: fixed; inset: 0; z-index: calc(var(--ds-header-z) + 10);
+  background: rgba(4, 5, 6, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.ds-modal-backdrop[data-open="true"] { display: flex; }
+.ds-modal {
+  width: min(28rem, 100%);
+  background: var(--ds-surface-navy);
+  border: 1px solid var(--ds-border-dark);
+  border-radius: var(--ds-radius-2xl);
+  padding: 2rem;
+  position: relative;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+.ds-modal__close {
+  position: absolute; top: 0.9rem; right: 0.9rem;
+  background: none; border: 0; color: var(--ds-text-muted-dark);
+  font-size: 1.4rem; cursor: pointer; line-height: 1; padding: 0.35rem;
+}
+.ds-modal__close:hover { color: var(--ds-text-on-dark); }
+.ds-modal__tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+.ds-modal__tab {
+  flex: 1; padding: 0.7rem; border-radius: var(--ds-radius-lg);
+  background: transparent; border: 1px solid var(--ds-border-dark);
+  color: var(--ds-text-muted-dark); cursor: pointer; font-weight: var(--ds-weight-medium);
+}
+.ds-modal__tab[aria-selected="true"] { background: var(--ds-gradient-cta); border-color: transparent; color: #fff; }
+
+/* Print: drop ambient decoration, keep content readable. */
+@media print {
+  .ds-header, .ds-drawer, .ds-modal-backdrop, .ds-marquee, .ds-prefooter-glow { display: none !important; }
+  body { background: #fff; color: #111; }
+}

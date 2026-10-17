@@ -1,0 +1,1 @@
+{"description":"Flowmint marketing site plus a zero-dependency Node lead-capture API (original code, original branding).","engines":{"node":">=18"},"name":"flowmint-site","private":true,"scripts":{"build:details":"node scripts/generate-detail-pages.js","start":"node api/server.js","test":"node scripts/smoke.js"},"version":"0.2.0"}

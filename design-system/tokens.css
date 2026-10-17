@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Flowmint — Design Tokens
+   Agent 4 (Design System) · 2026-10-17
+   --------------------------------------------------------------------------
+   Original code written from factual measurements. Hex values, sizes and
+   breakpoints are facts read from the reference's public brand guidelines
+   and global stylesheet; every selector and declaration here is freshly
+   authored. Nothing is lifted from the reference's markup, classes or CSS.
+
+   Provenance tags used throughout:
+     [OFFICIAL]  public brand-guideline page of the reference site (read 2026-10-17)
+     [MEASURED]  reference global stylesheet, authorized read 2026-10-17
+     [OBSERVED]  visual inspection of screenshots / rendered pages
+     [ESTIMATED] visual estimate — value was not extractable
+     [CHOICE]    design-system author choice where reference is silent
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     Color — brand (official)
+     ------------------------------------------------------------------ */
+  --ds-brand-pink: #ea4b71;   /* [OFFICIAL] primary brand pink */
+  --ds-brand-black: #040506;  /* [OFFICIAL] brand black */
+  --ds-white: #ffffff;        /* [OFFICIAL] base white */
+
+  /* ------------------------------------------------------------------
+     Color — dark surfaces (purple-tinted near-blacks, NOT neutral gray)
+     [MEASURED] from the reference stylesheet
+     ------------------------------------------------------------------ */
+  --ds-surface-page: #0e0918;    /* primary dark page background */
+  --ds-surface-deep: #0d0a19;    /* deeper variant (footer card base) */
+  --ds-surface-navy: #1b1728;    /* dark navy panels */
+  --ds-surface-raised: #272333;  /* lightened surface for raised layers */
+  --ds-surface-ink: #1f192a;     /* deep navy */
+  --ds-surface-card: #1a1624;    /* card fill seen in reference markup */
+
+  /* ------------------------------------------------------------------
+     Color — text on dark [MEASURED]
+     ------------------------------------------------------------------ */
+  --ds-text-on-dark: #ffffff;        /* headings on dark */
+  --ds-text-body-dark: #d1cece;      /* primary body copy on dark */
+  --ds-text-muted-dark: #9d9797;     /* secondary copy on dark */
+  --ds-accent-orange: #ff9b26;       /* heading accent orange */
+
+  /* ------------------------------------------------------------------
+     Color — neutrals [MEASURED]
+     ------------------------------------------------------------------ */
+  --ds-gray-100: #f7f6fa;  /* hazy white */
+  --ds-gray-200: #e4e4e4;
+  --ds-gray-400: #a3a3a3;
+  --ds-gray-500: #7a7a7a;
+  --ds-gray-700: #464646;
+  --ds-slate-blue: #48556a;
+
+  /* ------------------------------------------------------------------
+     Color — CTA / action gradients [MEASURED exact stops]
+     ------------------------------------------------------------------ */
+  --ds-gradient-cta: linear-gradient(77.24deg, #fd8925 7.17%, #ff0c00 86.3%);
+  --ds-gradient-cta-alt: linear-gradient(90deg, #ff9b26 29.28%, #ee4f27 67.8%);
+  /* Blue→violet pill CTA. Stops measured; angle not extractable. [ESTIMATED] */
+  --ds-gradient-blue: linear-gradient(90deg, #077ac7, #6b21ef);
+
+  /* Red scale for accents, badges, active states [MEASURED] */
+  --ds-red-500: #ff492c;
+  --ds-red-400: #f96e49;
+  --ds-red-600: #ee4f27;
+  --ds-red-700: #e04722;
+  --ds-red-800: #b83617;
+  --ds-red-hot: #ff0c00;
+
+  /* ------------------------------------------------------------------
+     Color — ambient glows on dark [OBSERVED]
+     ------------------------------------------------------------------ */
+  --ds-glow-pink: rgba(234, 75, 113, 0.45);
+  --ds-glow-purple: rgba(139, 92, 246, 0.40);
+  --ds-glow-blue: rgba(59, 130, 246, 0.35);
+
+  /* ------------------------------------------------------------------
+     Color — borders
+     ------------------------------------------------------------------ */
+  --ds-border-dark: rgba(255, 255, 255, 0.10);  /* 1px card borders on dark [OBSERVED] */
+  --ds-border-light: #e8e8ef;                   /* 1px card borders on light [OBSERVED] */
+  --ds-border-ghost: rgba(255, 255, 255, 0.22); /* ghost button border [CHOICE] */
+
+  /* ------------------------------------------------------------------
+     Color — light theme (OPTIONAL)
+     Tokens exist in the reference stylesheet but were UNUSED on the
+     captured homepage/pricing (all-dark, verified 2026-10-17). Provided
+     only if a future light page is required; do not use by default.
+     ------------------------------------------------------------------ */
+  --ds-light-bg: #ffffff;
+  --ds-light-bg-alt: #f1f1f1;
+  --ds-light-ink: #141414;
+  --ds-light-muted: #868686;
+  --ds-light-line: #d6d6d6;
+
+  /* ------------------------------------------------------------------
+     Typography
+     Reference uses Geomanist (proprietary). SUBSTITUTION: Manrope
+     (SIL Open Font License, geometric humanist sans — closest open
+     match). Load it in the app shell; fallbacks keep the page usable.
+     ------------------------------------------------------------------ */
+  --ds-font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --ds-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Display scale — size / line-height pairs [MEASURED] */
+  --ds-display-xxs: 1.75rem;   /* 28px / 1.2  */
+  --ds-display-xs: 2rem;       /* 32px / 1.0  */
+  --ds-display-sm: 2.375rem;   /* 38px / 1.0  */
+  --ds-display-md: 3rem;       /* 48px / 1.0  */
+  --ds-display-lg: 3.375rem;   /* 54px / 1.0  */
+  --ds-display-xl: 3.375rem;   /* 54px / 1.0  */
+  --ds-display-xxl: 5rem;      /* 80px; line-height not extractable */
+
+  --ds-lh-display-tight: 1;
+  --ds-lh-display: 1.2;
+  --ds-lh-body: 1.5;           /* [MEASURED] all body sizes at 150% */
+
+  /* Body scale [MEASURED] */
+  --ds-text-xs: 0.75rem;       /* 12px */
+  --ds-text-sm: 0.875rem;      /* 14px */
+  --ds-text-md: 1rem;          /* 16px */
+  --ds-text-lg: 1.125rem;      /* 18px */
+  --ds-text-xl: 1.25rem;       /* 20px */
+  --ds-text-2xl: 1.5rem;       /* 24px */
+  --ds-text-3xl: 1.875rem;     /* 30px */
+  --ds-text-nav: 0.9375rem;    /* 15px nav links [MEASURED] */
+  --ds-text-eyebrow: 0.8125rem;/* 13px eyebrow [OBSERVED] */
+
+  /* Weights [MEASURED 300/400/500/600] */
+  --ds-weight-light: 300;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-semibold: 600;
+
+  --ds-eyebrow-spacing: 0.12em; /* [OBSERVED] */
+
+  /* ------------------------------------------------------------------
+     Radius [MEASURED scale]
+     ------------------------------------------------------------------ */
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.375rem;
+  --ds-radius-lg: 0.5rem;
+  --ds-radius-xl: 0.75rem;
+  --ds-radius-2xl: 1rem;
+  --ds-radius-3xl: 1.5rem;
+  --ds-radius-default: 1.5rem;
+  --ds-radius-small: 1rem;
+  --ds-radius-huge: 2rem;
+  --ds-radius-pill: 999px;      /* functional equivalent of the
+                                  reference's effectively-infinite radius */
+
+  /* ------------------------------------------------------------------
+     Breakpoints [MEASURED — Tailwind v4 scale from reference CSS]
+     In px at 16px root: 640 / 768 / 1024 / 1280 / 1536.
+     xxl 1440px observed as a container token (agent-12 analysis).
+     ------------------------------------------------------------------ */
+  --ds-bp-sm: 40rem;
+  --ds-bp-md: 48rem;
+  --ds-bp-lg: 64rem;
+  --ds-bp-xl: 80rem;
+  --ds-bp-2xl: 96rem;
+  --ds-container-max: 90rem;   /* 1440px outer measure [OBSERVED/ESTIMATED] */
+  --ds-container-inner: 75rem; /* 1200px inner text measure [OBSERVED/ESTIMATED] */
+
+  /* ------------------------------------------------------------------
+     Spacing — section rhythm
+     Exact reference gap utilities were not extractable; the visual
+     estimate below is the working target. [ESTIMATED]
+     ------------------------------------------------------------------ */
+  --ds-section-y: clamp(4.5rem, 8vw, 8rem);
+  --ds-section-y-tight: clamp(3rem, 6vw, 5rem);
+  --ds-gutter: clamp(1rem, 4vw, 2rem);
+
+  /* ------------------------------------------------------------------
+     Header metrics [MEASURED unless noted]
+     ------------------------------------------------------------------ */
+  --ds-header-offset: 0.5rem;       /* mt-2; md:mt-4 → 1rem; lg:mt-2 → 0.5rem */
+  --ds-header-offset-md: 1rem;
+  --ds-header-nav-h: 58px;          /* min-height of the nav row */
+  --ds-header-radius: var(--ds-radius-2xl); /* 1rem — NOT fully round [MEASURED] */
+  --ds-header-bg: rgba(14, 9, 24, 0.70);    /* midnight navy 70% [MEASURED] */
+  --ds-header-bg-lg: rgba(14, 9, 24, 0.20); /* drops to 20% at lg [MEASURED] */
+  --ds-header-blur: 16px;          /* [OBSERVED] */
+  --ds-header-z: 1000;             /* reference uses a very high z-index [MEASURED] */
+
+  /* ------------------------------------------------------------------
+     Motion
+     ------------------------------------------------------------------ */
+  --ds-marquee-speed: 15s;                 /* [MEASURED] default via CSS var */
+  --ds-marquee-direction: normal;          /* [MEASURED] default `forwards` */
+  --ds-reveal-duration: 0.7s;              /* [OBSERVED/ESTIMATED] */
+  --ds-reveal-distance: 24px;              /* [OBSERVED/ESTIMATED] */
+  --ds-reveal-ease: ease-out;              /* [OBSERVED/ESTIMATED] */
+  --ds-tab-fade: 0.35s;                    /* [ESTIMATED from token spec] */
+  --ds-dropdown-anim: 0.2s;                /* [ESTIMATED] reference anim unrecovered */
+  --ds-header-hide: 0.3s;                  /* [MEASURED] hide-on-scroll transition */
+
+  /* ------------------------------------------------------------------
+     Elevation — dark cards use borders + inner glows, not shadows [OBSERVED]
+     ------------------------------------------------------------------ */
+  --ds-shadow-card-light: 0 12px 40px rgba(20, 20, 25, 0.08); /* [OBSERVED] light cards */
+  --ds-shadow-pop: 0 24px 64px rgba(0, 0, 0, 0.45);           /* [CHOICE] dropdowns */
+}
